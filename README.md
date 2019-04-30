@@ -17,7 +17,7 @@ pip install .
 
 ## Usage
 
-See documentation of `pyicsf.icsf`.
+See documentation of `pyicsf.icsf()`.
 
 Very basic example:
 
@@ -32,7 +32,7 @@ plt.plot(wvl, I_corr)
 
 More detailed example: see `example.py`.
 
-![Plot showing the result of example.py][icsf_example.png]
+![Plot showing the result of example.py](https://raw.githubusercontent.com/gpelouze/pyicsf/master/icsf_example.png)
 
 ## License
 
