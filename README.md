@@ -17,23 +17,42 @@ pip install .
 
 ## Usage
 
-See documentation of `pyicsf.icsf()`.
+The ICSF procedure is implemented by the `pyicsf.icsf()` function, which takes
+four arguments:
 
-Very basic example:
+- `wvl` (1D array): wavelength positions.
+- `I_obs` (1D array, same shape as `wvl`): observed intensities at the `wvl`
+  positions.
+- `min_err=1e-5` (float, optional): minimum error [F^i_avg − I_avg] at which
+  the iteration stops.
+- `max_iter=100` (int, optional): maximum number of iterations after which an
+  exception is raised if the optimization has not converged.
+
+This module also contains `pyicsf.bin_function()`, which integrates a function
+within bins. It is used by `pyicsf.icsf()`, but can also generate synthetic
+profiles from a known source function to test the procedure.
+
+
+## Examples
+
+**Very basic example:**
 
 ~~~python
 import pyicsf
-wvl = np.linspace(-5, 5, 20)
+# generate a spectrum
+wvl = np.linspace(-5.2, 4.8, 20)
 I_obs = np.exp(-wvl**2)
+# apply the ICSF procedure
 I_corr = pyicsf.icsf(wvl, I_obs)
-plt.plot(wvl, I_obs)
-plt.plot(wvl, I_corr)
 ~~~
 
-More detailed example: see `example.py`.
+**More detailed example:** see [`example.py`](example.py), which was used to
+generate the following plot:
 
 ![Plot showing the result of example.py](https://raw.githubusercontent.com/gpelouze/pyicsf/master/icsf_example.png)
 
+
 ## License
 
-This package is released under a MIT open source licence. See `LICENSE.txt`.
+This package is released under a MIT open source licence. See
+[`LICENSE.txt`](LICENSE.txt).

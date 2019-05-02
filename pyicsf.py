@@ -58,9 +58,10 @@ def icsf(wvl, I_obs, min_err=1e-5, max_iter=100):
     I_obs : array of shape (n,)
         Observed intensities at the wvl positions
     min_err : float (default: 1e-5)
-        Minimum error <|Fi_avg - I_obs|> at which the iteration stops.
+        Minimum error [F^i_avg - I_avg] at which the iteration stops.
     max_iter : int (default: 100)
-        Maximum number of iterations after which the optimization fails.
+        Maximum number of iterations after which the optimization fails if it
+        has not converged.
 
     Raises
     ======
